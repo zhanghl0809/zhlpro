@@ -1,0 +1,62 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: 8023zhl
+    url: jdbc:mysql://39.97.119.153:3306/ssm?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  http:
+    #编码格式
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.example.entity
+
+logging:
+  path: /Users/Administrator/Desktop/ims #日志文件路径
+  file: ims.log #日志文件名称
+  level:
+    com:
+      example: debug #日志级别 root表示所有包，也可以单独配置具体包 fatal error warn info debug trace off
+
+
+#devtools:
+#  livereload:
+#    enabled: true #是否支持livereload
+#    port: 35729
+#  restart:
+#    enabled: true #是否支持热部署
+#    additional-paths: src/main/java  #监听目录
+# redis数据库（默认为0）
+redis:
+  database: 1
+  # Redis服务器地址
+  host: localhost
+  # Redis服务器连接端口
+  port: 6379
+  # Redis服务器连接密码（默认为空）
+  password:
+  # 连接池最大连接数（使用负值表示没有限制）
+  pool.max-active: 8
+  # 连接池最大阻塞等待时间（使用负值表示没有限制）
+  pool.max-wait: -1
+  # 连接池中的最大空闲连接
+  pool.max-idle: 8
+  # 连接池中的最小空闲连接
+  pool.min-idle: 0
+  # 连接超时时间（毫秒）
+  timeout: 0
+
+mq:
+  rabbit:
+    host: localhost
+    port: 5672
+    virtualHost: /
+    username: guest
+    password: guest
